@@ -15,9 +15,31 @@ var altura = tdAltura.innerText;
 
 // Define a função de IMC a uma variável e acessa o objeto pela classe
 var IMC = peso / (altura * altura);
-var tdIMC = paciente.querySelector(".info-imc");
 
-tdIMC.innerText = IMC;
+// Valores booleanos
+
+var pesoValido = true;
+var alturaValida = true;
+
+// Emite um alerta se o peso for menor ou maior do que o requisitado.
+if(peso <= 0 || peso >= 1000){
+    var pesoValido = false;
+    alert("Peso Inválido!");
+}
+
+// Emite um alerta se a altura for menor ou maior do que o requisitado.
+
+if (altura <= 0.00 || altura >= 3.00){
+    var alturaValida = false;
+    alert("Altura Inválida!");
+}
+
+// O cálculo só acontece se os valores forem true.
+
+if (pesoValido && alturaValida){
+    var tdIMC = paciente.querySelector(".info-imc");
+    tdIMC.innerText = IMC;
+}
 
 console.log(paciente);
 console.log(tdPeso);
