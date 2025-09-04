@@ -26,19 +26,6 @@ for(i = 0; i < pacientes.length; i++){
     var pesoValido = true;
     var alturaValida = true;
     
-    // Emite um alerta se o peso for menor ou maior do que o requisitado.
-    if(peso <= 0 || peso >= 1000){
-        var pesoValido = false;
-        alert("Peso Inválido!");
-    }
-    
-    // Emite um alerta se a altura for menor ou maior do que o requisitado.
-    
-    if (altura <= 0.00 || altura >= 3.00){
-        var alturaValida = false;
-        alert("Altura Inválida!");
-    }
-    
     // O cálculo só acontece se os valores forem true.
     
     if (pesoValido && alturaValida){
@@ -46,5 +33,23 @@ for(i = 0; i < pacientes.length; i++){
         tdIMC.innerText = IMC.toFixed(2);
     }
 
+    // Emite um alerta se o peso for menor ou maior do que o requisitado.
+    if(peso <= 0 || peso >= 1000){
+        var pesoValido = false;
+        alert("Peso Inválido!");
+        tdIMC.innerText = 'Paciente Inválido!';
+        tdIMC.classList.add('paciente__invalido');
+    }
+    
+    // Emite um alerta se a altura for menor ou maior do que o requisitado.
+    
+    if (altura <= 0.00 || altura >= 3.00){
+        var alturaValida = false;
+        alert("Altura Inválida!");
+        tdIMC.innerText = 'Altura Inválida!';
+        tdIMC.classList.add('paciente__invalido');
+
+    }
+    
 }
 
