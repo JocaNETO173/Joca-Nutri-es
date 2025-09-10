@@ -1,5 +1,9 @@
-let notas = [100, 80, 92, 10];
+function somarVariavel(){
+    let a = 10;
+    let b = 5;
+    let soma = a + b;
+    console.log(soma);
+};
 
-for(var i = 0; i < notas.length; i++){
-    console.log(notas[i])
-}
+somarVariavel();
+
