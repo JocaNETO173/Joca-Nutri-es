@@ -53,7 +53,11 @@ for(i = 0; i < pacientes.length; i++){
     
 }
 
-titulo.addEventListener('click', function(){
-    alert("CLICADO");
-});
+var addPaciente = document.querySelector('#adicionar-paciente');
 
+addPaciente.addEventListener('click', 
+    function (event){
+        event.preventDefault();
+        console.log('paciente adicionado');
+    }
+);
