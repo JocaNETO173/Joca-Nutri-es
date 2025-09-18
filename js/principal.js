@@ -37,7 +37,7 @@ for(i = 0; i < pacientes.length; i++){
     if(peso <= 0 || peso >= 1000){
         var pesoValido = false;
         alert("Peso Inválido!");
-        tdIMC.innerText = 'Paciente Inválido!';
+        tdIMC.innerText = 'Peso Inválido!';
         tdIMC.classList.add('paciente__invalido');
     }
     
@@ -58,6 +58,21 @@ var addPaciente = document.querySelector('#adicionar-paciente');
 addPaciente.addEventListener('click', 
     function (event){
         event.preventDefault();
-        console.log('paciente adicionado');
+
+        var form = document.querySelector('#form-adiciona');
+
+        var nome = form.nome.value;
+        var peso = form.peso.value;
+        var altura = form.altura.value;
+        var gordura = form.gordura.value;
+        
+        console.log(nome);
+        console.log(peso);
+        console.log(altura);
+        console.log(gordura);
+
+        var tabela = document.querySelector('#tabela-pacientes');
+
+        tabela.o
     }
 );

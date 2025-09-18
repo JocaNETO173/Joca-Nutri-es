@@ -16,6 +16,7 @@ function precoFinal (){
     else{
         console.log('Você não tem dinheiro o suficiente para comprar este produto!');
     };
+
 };
 
 precoFinal();
