@@ -10,34 +10,15 @@ addPaciente.addEventListener('click',
         // acessamos os valores <input> do formulário
 
         var paciente = dadosPacientesFormulario(form);
-        console.log(paciente);
+        // chama a função para criar a row da Tabela
+        var pacienteTr = criaTr(paciente);
 
-        // cria o elemento <tr>
-        var pacienteTr = document.createElement("tr");
-
-        // cria as tags <td>
-        var nomeTd = document.createElement("td");
-        var pesoTd = document.createElement("td");
-        var alturaTd = document.createElement("td");
-        var gorduraTd = document.createElement("td");
-        var imcTd = document.createElement("td");
-
-        
-        nomeTd.innerText = paciente.nome;
-        pesoTd.innerText = paciente.peso;
-        alturaTd.innerText = paciente.altura;
-        gorduraTd.innerText = paciente.gordura;
-        imcTd.textContent = paciente.IMC;
-
-        pacienteTr.appendChild(nomeTd);
-        pacienteTr.appendChild(pesoTd);
-        pacienteTr.appendChild(alturaTd);
-        pacienteTr.appendChild(gorduraTd);
-        pacienteTr.appendChild(imcTd);
-
+        //
         var tabela = document.querySelector("#tabela-pacientes")
 
         tabela.appendChild(pacienteTr).classList.add('paciente');
+
+
 
         
         
@@ -62,4 +43,28 @@ function dadosPacientesFormulario(form){
     }
 
     return paciente;
-}
+};
+
+function criaTr(paciente){
+     // cria o elemento <tr>
+     var pacienteTr = document.createElement("tr");
+     pacienteTr.classList.add("paciente");
+
+        // adiciona como elmentos filhos os td
+
+        pacienteTr.appendChild(criaTd(paciente.nome, "info-nome"));
+        pacienteTr.appendChild(criaTd(paciente.peso, "info-peso"));
+        pacienteTr.appendChild(criaTd(paciente.altura, "info-altura"));
+        pacienteTr.appendChild(criaTd(paciente.gordura, "info-gordura"));
+        pacienteTr.appendChild(criaTd(paciente.IMC, "info-imc"));
+
+        return pacienteTr;
+};
+
+function criaTd(dado, classes){
+
+    var td = document.createElement("td");
+    td.innerText = dado;
+    td.classList.add(classes);
+    return td;
+};
