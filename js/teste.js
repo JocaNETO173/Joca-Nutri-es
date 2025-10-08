@@ -1,9 +1,12 @@
-function somarVariavel(){
-    let a = 10;
-    let b = 5;
-    let soma = a + b;
-    console.log(soma);
-};
+function mostraMensagem(){
+    const nome = "Joca";
 
-somarVariavel();
 
+
+    return nome;
+}
+
+let nome = mostraMensagem();
+
+console.log(`Olá ${nome}! Bem-vindo!`);
+console.log(nome);
