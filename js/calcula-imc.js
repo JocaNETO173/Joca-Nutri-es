@@ -23,18 +23,18 @@ for(i = 0; i < pacientes.length; i++){
     
     // Valores booleanos
     
-    var pesoValido = true;
-    var alturaValida = true;
-    
+    var pesoValido = validarPeso(peso);
+    var alturaValida = validarAltura(altura);
+    var tdIMC = paciente.querySelector(".info-imc");
     // O cálculo só acontece se os valores forem true.
     
     if (pesoValido && alturaValida){
-        var tdIMC = paciente.querySelector(".info-imc");
+        
         tdIMC.innerText = IMC;
     }
 
     // Emite um alerta se o peso for menor ou maior do que o requisitado.
-    if(peso <= 0 || peso >= 1000){
+    if(!validarPeso(peso)){
         var pesoValido = false;
         //alert("Peso Inválido!");
         tdIMC.innerText = 'Peso Inválido!';
@@ -43,7 +43,7 @@ for(i = 0; i < pacientes.length; i++){
     
     // Emite um alerta se a altura for menor ou maior do que o requisitado.
     
-    if (altura <= 0.00 || altura >= 3.00){
+    if (!validarAltura(altura)){
         var alturaValida = false;
         //alert("Altura Inválida!");
         tdIMC.innerText = 'Altura Inválida!';
@@ -57,4 +57,20 @@ function calculaIMC (peso, altura){
     var imc = peso / (altura * altura);
 
     return imc.toFixed(2);
+}
+
+function validarPeso(peso){
+    if(peso > 0 && peso < 1000){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function validarAltura(altura){
+    if(altura > 0.00 && altura < 3.00){
+        return true;
+    }else{
+        return false;
+    }
 }

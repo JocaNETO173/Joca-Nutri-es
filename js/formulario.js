@@ -13,10 +13,16 @@ addPaciente.addEventListener('click',
         // chama a função para criar a row da Tabela
         var pacienteTr = criaTr(paciente);
 
+        if(!validarPaciente(paciente)){
+            console.log('Peso Inválido');
+            return;
+        }
+
         //
         var tabela = document.querySelector("#tabela-pacientes")
 
         tabela.appendChild(pacienteTr).classList.add('paciente');
+        form.reset();
 
 
 
@@ -68,3 +74,11 @@ function criaTd(dado, classes){
     td.classList.add(classes);
     return td;
 };
+
+function validarPaciente(paciente){
+    if(validarPeso(paciente.peso)){
+        return true;
+    }else{
+        return false;
+    }
+}
