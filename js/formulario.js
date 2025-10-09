@@ -13,7 +13,11 @@ addPaciente.addEventListener('click',
         // chama a função para criar a row da Tabela
         var pacienteTr = criaTr(paciente);
 
-        if(!validarPaciente(paciente)){
+        var erros = validarPaciente(paciente);
+
+        if(erros.length > 0){
+            var mensagem_erro = document.querySelector('#mensagem-erro')
+            mensagem_erro.innerText = erros;
             console.log('Peso Inválido');
             return;
         }
@@ -76,9 +80,11 @@ function criaTd(dado, classes){
 };
 
 function validarPaciente(paciente){
-    if(validarPeso(paciente.peso)){
-        return true;
-    }else{
-        return false;
-    }
+
+    var erros = [];
+    
+    if(!validarPeso(paciente.peso)) erros.push(' Peso Inválido! ');
+    if(!validarAltura(paciente.altura)) erros.push(' Altura Inválida! ');
+    if(validarPeso(paciente.peso) || validarAltura(paciente.altura)) erros.push('');
+    return erros;
 }
