@@ -82,6 +82,10 @@ function validarPaciente(paciente){
 
     var erros = [];
     
+    if(paciente.nome.length ==0) erros.push (' O nome não pode estar vazio ');
+    if(paciente.gordura.length ==0) erros.push (' A gordura não pode estar vazia ');
+    if(paciente.peso.length ==0) erros.push (' O peso não pode estar vazio ');
+    if(paciente.altura.length ==0) erros.push (' A altura não pode estar vazia ');
     if(!validarPeso(paciente.peso)) erros.push(' Peso Inválido! ');
     if(!validarAltura(paciente.altura)) erros.push(' Altura Inválida! ');
     return erros;
@@ -90,6 +94,7 @@ function validarPaciente(paciente){
 function exibirMensagemErro(erros){
 
     let ul = document.querySelector('#mensagens-erro')
+    ul.innerHTML = '';
 
     erros.forEach(function(erro){
         let li = document.createElement('li');
