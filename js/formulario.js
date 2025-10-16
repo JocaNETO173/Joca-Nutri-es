@@ -14,11 +14,10 @@ addPaciente.addEventListener('click',
         var pacienteTr = criaTr(paciente);
 
         var erros = validarPaciente(paciente);
-
+        console.log(erros)
         if(erros.length > 0){
-            var mensagem_erro = document.querySelector('#mensagem-erro')
-            mensagem_erro.innerText = erros;
-            console.log('Peso Inválido');
+            exibirMensagemErro(erros);
+
             return;
         }
 
@@ -85,6 +84,17 @@ function validarPaciente(paciente){
     
     if(!validarPeso(paciente.peso)) erros.push(' Peso Inválido! ');
     if(!validarAltura(paciente.altura)) erros.push(' Altura Inválida! ');
-    if(validarPeso(paciente.peso) || validarAltura(paciente.altura)) erros.push('');
     return erros;
+}
+
+function exibirMensagemErro(erros){
+
+    let ul = document.querySelector('#mensagens-erro')
+
+    erros.forEach(function(erro){
+        let li = document.createElement('li');
+        li.innerText = erro
+        ul.appendChild(li);
+    })
+
 }
