@@ -165,6 +165,14 @@ input {
 	margin-bottom: 30px;
 }
 
+#filtrar-tabela::placeholder {
+	color: rgb(255, 204, 0);
+}
+
 #spam {
 	height: 50px;
+}
+
+.vanish {
+	display: none;
 }
