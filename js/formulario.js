@@ -25,6 +25,8 @@ addPaciente.addEventListener('click',
         var tabela = document.querySelector("#tabela-pacientes")
 
         tabela.appendChild(pacienteTr).classList.add('paciente');
+        mensagemErro = document.querySelector('#mensagens-erro')
+        mensagemErro.innerHTML = ''
         form.reset();
 
 
